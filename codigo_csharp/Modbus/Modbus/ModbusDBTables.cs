@@ -1,0 +1,9 @@
+namespace Modbus;
+
+public enum ModbusDBTables
+{
+	DISCRETE_INPUTS_REGISTERS,
+	COIL_REGISTERS,
+	INPUT_REGISTERS,
+	HOLDING_REGISTERS
+}

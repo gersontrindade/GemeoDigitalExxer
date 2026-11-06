@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planta Smart 4.0 3D</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #0f1214; --panel: #171b1f; --panel-2: #1e2328; --line: #2a3138;
+    --text: #e3e7ea; --muted: #8b959e; --accent: #8fd14f; --accent-2: #4fa3d1; --warn: #e0b341;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font: 13px/1.4 system-ui, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+  #app { display: grid; grid-template-columns: 320px 1fr; height: 100%; }
+  #side { background: var(--panel); border-right: 1px solid var(--line); overflow-y: auto; }
+  #view { position: relative; min-width: 0; }
+  canvas { display: block; }
+  header { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
+  header h1 { margin: 0; font-size: 15px; letter-spacing: .02em; }
+  header h1 b { color: var(--accent); }
+  header p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+  section { padding: 10px 16px 12px; border-bottom: 1px solid var(--line); }
+  section h2 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 4px 0; }
+  button, select, input[type=number] { background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 5px 9px; font: inherit; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button.on { background: #2c3a22; border-color: var(--accent); color: #d7f5b8; }
+  select { width: 100%; }
+  label.chk { display: flex; gap: 6px; align-items: center; cursor: pointer; margin: 3px 0; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  .muted { color: var(--muted); }
+  #tree { font-size: 12px; max-height: 42vh; overflow: auto; padding-right: 4px; }
+  #tree ul { list-style: none; margin: 0; padding-left: 14px; }
+  #tree > ul { padding-left: 0; }
+  #tree li > div { display: flex; align-items: center; gap: 4px; padding: 1px 2px; border-radius: 4px; white-space: nowrap; }
+  #tree li > div:hover { background: var(--panel-2); }
+  #tree li > div.sel { background: #2c3a22; }
+  #tree .tg { width: 14px; text-align: center; color: var(--muted); cursor: pointer; user-select: none; }
+  #tree .nm { cursor: pointer; overflow: hidden; text-overflow: ellipsis; }
+  #tree li.closed > ul { display: none; }
+  #info { position: absolute; right: 12px; top: 12px; width: 300px; background: rgba(23,27,31,.92);
+    border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 12px; display: none; }
+  #info h3 { margin: 0 0 6px; font-size: 13px; word-break: break-all; color: var(--accent); }
+  #info table { width: 100%; border-collapse: collapse; }
+  #info td { padding: 2px 0; vertical-align: top; }
+  #info td:first-child { color: var(--muted); width: 84px; }
+  #status { position: absolute; left: 12px; bottom: 12px; background: rgba(23,27,31,.9); border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--muted); }
+  #loading { position: absolute; inset: 0; display: grid; place-items: center; background: var(--bg); font-size: 14px; z-index: 5; }
+  #loading .bar { width: 260px; height: 4px; background: var(--line); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+  #loading .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+  #help { color: var(--muted); font-size: 11.5px; }
+  kbd { background: var(--panel-2); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; font-size: 11px; }
+  @media (max-width: 760px) {
+    #app { grid-template-columns: 1fr; grid-template-rows: 55vh 1fr; }
+    #side { order: 2; border-right: 0; border-top: 1px solid var(--line); }
+    #info { width: auto; left: 12px; }
+  }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.js", "three/addons/": "./lib/addons/" } }
+</script>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <header>
+      <h1>Planta <b>Smart 4.0</b> · modelo 3D</h1>
+      <p>Extraído do gêmeo digital Unity (SENAI / Exsto Labtronix)</p>
+    </header>
+
+    <section>
+      <h2>Câmera</h2>
+      <div class="row" id="cams"></div>
+    </section>
+
+    <section>
+      <h2>Exibição</h2>
+      <label class="chk"><input type="checkbox" id="optCenario"> Cenário (sala, vidros, logos)</label>
+      <label class="chk"><input type="checkbox" id="optEstoque" checked> Estoque populado com SmartBlocks</label>
+      <label class="chk"><input type="checkbox" id="optPaineis"> Painéis informativos flutuantes</label>
+      <label class="chk"><input type="checkbox" id="optMarcadores"> Marcadores (pontos de instanciação/holders)</label>
+      <label class="chk"><input type="checkbox" id="optSombras" checked> Sombras</label>
+      <label class="chk"><input type="checkbox" id="optGrade" checked> Piso com grade (10 cm)</label>
+      <label class="chk" title="No gêmeo digital existe um vão entre Processo e Montagem; na planta física os módulos ficam encostados"><input type="checkbox" id="optCompacto"> Layout compacto (fecha o vão Processo↔Montagem)</label>
+    </section>
+
+    <section>
+      <h2>Animações (clips do Unity)</h2>
+      <select id="clipSel"></select>
+      <div class="row">
+        <button id="btnPlay">▶ Tocar</button>
+        <button id="btnSeq" title="Toca em ordem os clips numerados do robô">Sequência do robô</button>
+        <button id="btnStop">■ Parar</button>
+        <button id="btnLoop">Loop</button>
+      </div>
+      <div class="row"><span class="muted" style="width:72px">Tempo</span><input type="range" id="scrub" min="0" max="1" step="0.001" value="0" style="flex:1"></div>
+      <div class="row"><span class="muted" style="width:72px">Velocidade</span><input type="range" id="speed" min="0.1" max="3" step="0.1" value="1" style="flex:1"><span id="speedV">1.0×</span></div>
+      <div class="muted" id="clipInfo"></div>
+    </section>
+
+    <section>
+      <h2>Peças</h2>
+      <div class="row"><input id="busca" placeholder="Filtrar por nome…" style="flex:1;background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit"></div>
+      <div id="tree"></div>
+    </section>
+
+    <section id="help">
+      <b>Mouse:</b> esquerdo gira · direito move · roda aproxima.<br>
+      <b>Clique</b> seleciona uma peça · <kbd>F</kbd> enquadra a seleção · <kbd>H</kbd> oculta · <kbd>Esc</kbd> limpa.<br>
+      <b>Medir:</b> <kbd>Shift</kbd>+clique em dois pontos.
+    </section>
+  </aside>
+
+  <main id="view">
+    <div id="loading"><div>Carregando modelo…<div class="bar"><i id="bar"></i></div><div id="loadTxt" class="muted" style="margin-top:6px;font-size:12px"></div></div></div>
+    <div id="info"></div>
+    <div id="status">—</div>
+  </main>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+
+const GLB = { planta: '../glb/smart40_planta.glb', cenario: '../glb/smart40_cenario.glb', bloco: '../glb/smart40_smartblock.glb' };
+
+// ------------------------------------------------------------------ cena
+const view = document.getElementById('view');
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+view.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1f24);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.9;
+
+const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 200);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x30363c, 0.6));
+const sun = new THREE.DirectionalLight(0xffffff, 2.2);
+sun.castShadow = true;
+sun.shadow.mapSize.set(4096, 4096);
+sun.shadow.bias = -0.0004;
+sun.shadow.normalBias = 0.01;
+scene.add(sun, sun.target);
+
+function resize() {
+  const w = view.clientWidth, h = view.clientHeight;
+  renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+// ------------------------------------------------------------------ carregamento
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+const bar = document.getElementById('bar'), loadTxt = document.getElementById('loadTxt');
+const prog = {};
+function load(key) {
+  return new Promise((ok, err) => loader.load(GLB[key], ok, e => {
+    prog[key] = e.total ? e.loaded / e.total : 0;
+    const v = Object.values(prog); bar.style.width = (100 * v.reduce((a, b) => a + b, 0) / 3) + '%';
+    loadTxt.textContent = `${key}: ${(e.loaded / 1048576).toFixed(1)} MB`;
+  }, err));
+}
+
+const [gPlanta, gBloco] = await Promise.all([load('planta'), load('bloco')]).catch(e => {
+  document.getElementById('loading').innerHTML =
+    '<div style="max-width:460px;text-align:center">Não foi possível carregar os arquivos .glb.<br><span class="muted">Abra pelo <b>iniciar_visualizador.bat</b> (servidor local); navegadores bloqueiam o carregamento via file://.</span></div>';
+  throw e;
+});
+const planta = gPlanta.scene;
+scene.add(planta);
+planta.traverse(o => { if (o.isMesh) { o.castShadow = o.receiveShadow = !o.material.transparent; } });
+document.getElementById('loading').style.display = 'none';
+
+// cenário carregado sob demanda
+let cenario = null;
+async function toggleCenario(on) {
+  if (on && !cenario) {
+    document.getElementById('status').textContent = 'Carregando cenário…';
+    cenario = (await load('cenario')).scene;
+    cenario.traverse(o => { if (o.isMesh) o.receiveShadow = true; });
+    scene.add(cenario);
+    setStatus();
+  }
+  if (cenario) cenario.visible = on;
+  ground.visible = !on && document.getElementById('optGrade').checked;
+}
+
+// ------------------------------------------------------------------ piso e enquadramento
+const box = new THREE.Box3().setFromObject(planta);
+const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+const floorY = box.min.y;
+const ground = new THREE.Group();
+const gsz = Math.ceil(Math.max(size.x, size.z) * 2.2);
+const floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(gsz, gsz), new THREE.MeshStandardMaterial({ color: 0x2a3036, roughness: .95 }));
+floorMesh.rotation.x = -Math.PI / 2; floorMesh.receiveShadow = true;
+const grid = new THREE.GridHelper(gsz, gsz * 10, 0x3d464e, 0x323a41);
+grid.position.y = 0.001;
+ground.add(floorMesh, grid); ground.position.set(center.x, floorY, center.z);
+scene.add(ground);
+
+const R = Math.max(size.x, size.z);
+sun.position.set(center.x - R * .8, floorY + R * 1.4, center.z + R * .6);
+sun.target.position.copy(center);
+Object.assign(sun.shadow.camera, { left: -R, right: R, top: R, bottom: -R, near: .1, far: R * 5 });
+sun.shadow.camera.updateProjectionMatrix();
+
+// ------------------------------------------------------------------ utilitários
+const byName = n => planta.getObjectByName(n);
+function frame(obj, dir = new THREE.Vector3(-1, .55, .7), pad = 1.25) {
+  const b = new THREE.Box3().setFromObject(obj); if (b.isEmpty()) return;
+  const c = b.getCenter(new THREE.Vector3()), r = b.getSize(new THREE.Vector3()).length() / 2;
+  const d = r * pad / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2));
+  tweenCam(c.clone().add(dir.clone().normalize().multiplyScalar(d)), c);
+}
+let tween = null;
+function tweenCam(pos, tgt, ms = 650) {
+  tween = { p0: camera.position.clone(), t0: controls.target.clone(), p1: pos, t1: tgt, s: performance.now(), ms };
+}
+
+// ------------------------------------------------------------------ câmeras
+const bancadas = [['Estoque', 'ESTOQUE_3D'], ['Processo', 'PROCESSO_3D'], ['Qualidade', 'QUALIDADE_3D'], ['Expedição', 'EXPEDICAO_3D']];
+const cams = [
+  ['Geral', () => frame(planta, new THREE.Vector3(-1, .6, .8), 1.0)],
+  ['Frontal', () => frame(planta, new THREE.Vector3(-1, .15, 0), 1.0)],
+  ['Topo', () => frame(planta, new THREE.Vector3(-0.001, 1, 0), 0.95)],
+  ['Traseira', () => frame(planta, new THREE.Vector3(1, .35, 0), 1.0)],
+  ...bancadas.map(([t, n]) => [t, () => frame(byName(n), new THREE.Vector3(-1, .5, .35), 1.05)]),
+  ['Robô', () => frame(byName('QUALIDADE_ROBO_PARTE_11_3D'), new THREE.Vector3(-1, .7, .5), 1.6)],
+];
+const camsEl = document.getElementById('cams');
+for (const [t, f] of cams) { const b = document.createElement('button'); b.textContent = t; b.onclick = f; camsEl.appendChild(b); }
+
+// ------------------------------------------------------------------ estoque populado (marcadores do Unity)
+const blocoBase = gBloco.scene.getObjectByName('SmartBlock_Base');
+const raiz = planta.children[0]; // nó Smart40_planta (contém a escala metros/unidade)
+const estoqueGrp = new THREE.Group(); estoqueGrp.name = 'Estoque_SmartBlocks (gerado)';
+raiz.add(estoqueGrp);
+planta.updateMatrixWorld(true);
+const marcadores = [];
+planta.traverse(o => { if (o.userData.marcador) marcadores.push(o); });
+const inv = new THREE.Matrix4().copy(raiz.matrixWorld).invert();
+for (const m of marcadores.filter(m => /ESTOQUE_INSTANCIADOR_LOCAL/.test(m.name))) {
+  const c = blocoBase.clone(true);
+  const mw = new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld);
+  const p = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3();
+  mw.decompose(p, q, s);
+  c.position.copy(p); c.quaternion.copy(q); // escala local do prefab é mantida
+  c.traverse(o => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
+  estoqueGrp.add(c);
+}
+
+// marcadores visíveis
+const mkGrp = new THREE.Group(); mkGrp.visible = false; scene.add(mkGrp);
+const mkGeo = new THREE.SphereGeometry(0.008, 12, 8), mkMat = new THREE.MeshBasicMaterial({ color: 0xff8a3d, depthTest: false });
+for (const m of marcadores) {
+  const s = new THREE.Mesh(mkGeo, mkMat); s.renderOrder = 10;
+  s.position.copy(m.getWorldPosition(new THREE.Vector3())); s.userData.ref = m; mkGrp.add(s);
+}
+
+// painéis informativos (planos flutuantes do simulador): ocultos por padrão
+const paineis = ['PAINEL_ESTOQUE', 'PAINEL_PROCESSO', 'PAINEL_QUALIDADE', 'PAINEL_EXPEDICAO'].map(byName).filter(Boolean);
+paineis.forEach(p => p.visible = false);
+
+// ------------------------------------------------------------------ opções
+const $ = id => document.getElementById(id);
+$('optCenario').onchange = e => toggleCenario(e.target.checked);
+$('optEstoque').onchange = e => estoqueGrp.visible = e.target.checked;
+$('optPaineis').onchange = e => paineis.forEach(p => p.visible = e.target.checked);
+$('optMarcadores').onchange = e => mkGrp.visible = e.target.checked;
+$('optSombras').onchange = e => { sun.castShadow = e.target.checked; };
+$('optGrade').onchange = e => ground.visible = e.target.checked && !(cenario && cenario.visible);
+
+// layout compacto: desloca tudo que está do lado Estoque/Processo até encostar na Montagem
+const bProc = new THREE.Box3().setFromObject(byName('PROCESSO_3D')), bQual = new THREE.Box3().setFromObject(byName('QUALIDADE_3D'));
+const vao = bQual.min.z - bProc.max.z, corte = (bQual.min.z + bProc.max.z) / 2; // em metros (eixo Z do glTF)
+const ladoEstoque = [];
+for (const grp of [byName('Bancadas'), byName('Acessorios_e_Pecas'), estoqueGrp]) {
+  if (!grp) continue;
+  for (const c of grp.children) {
+    const b = new THREE.Box3().setFromObject(c);
+    const z = b.isEmpty() ? c.getWorldPosition(new THREE.Vector3()).z : b.getCenter(new THREE.Vector3()).z;
+    if (z < corte) ladoEstoque.push([c, c.position.clone()]);
+  }
+}
+$('optCompacto').onchange = e => {
+  for (const [c, p0] of ladoEstoque) {
+    const d = new THREE.Vector3(0, 0, e.target.checked ? vao : 0);
+    // converte o deslocamento (mundo) para o espaço local do pai
+    const inv = new THREE.Matrix4().copy(c.parent.matrixWorld).invert();
+    const o = new THREE.Vector3().applyMatrix4(inv), dl = d.clone().applyMatrix4(inv).sub(o);
+    c.position.copy(p0).add(dl);
+  }
+  planta.updateMatrixWorld(true);
+  mkGrp.children.forEach(s => s.position.copy(s.userData.ref.getWorldPosition(new THREE.Vector3())));
+};
+
+// ------------------------------------------------------------------ animações
+const mixer = new THREE.AnimationMixer(planta);
+const clips = gPlanta.animations;
+const ord = c => +(c.name.match(/QUALIDADE_(\d+)_/) || [0, 999])[1];
+const robo = clips.filter(c => c.name.startsWith('QUALIDADE_')).sort((a, b) => ord(a) - ord(b));
+const atuador = clips.filter(c => c.name.startsWith('PROCESSO_'));
+const clipSel = $('clipSel');
+for (const [label, list] of [['Robô da bancada Qualidade/Montagem', robo], ['Atuador XYZ da bancada Processo', atuador]]) {
+  const g = document.createElement('optgroup'); g.label = label;
+  for (const c of list) {
+    const o = document.createElement('option'); o.value = c.name;
+    o.textContent = c.name.replace(/^QUALIDADE_|^PROCESSO_ATUADOR_HORIZONTAL_3D_/, '').replace(/_/g, ' ') + ` (${c.duration.toFixed(1)} s)`;
+    g.appendChild(o);
+  }
+  clipSel.appendChild(g);
+}
+let action = null, loop = false, seq = null;
+function play(name) {
+  const clip = THREE.AnimationClip.findByName(clips, name);
+  // mantém a pose dos outros grupos; só para a ação anterior do mesmo dono
+  if (action) action.stop();
+  action = mixer.clipAction(clip);
+  action.reset();
+  action.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity);
+  action.clampWhenFinished = true;
+  action.play();
+  $('scrub').max = clip.duration;
+  $('clipInfo').textContent = `${clip.name} · ${clip.tracks.length} trilhas`;
+}
+$('btnPlay').onclick = () => { seq = null; play(clipSel.value); };
+$('btnStop').onclick = () => { seq = null; if (action) action.paused = !action.paused; $('btnStop').textContent = action && action.paused ? '❚❚ Pausado' : '■ Parar'; };
+$('btnLoop').onclick = e => { loop = !loop; e.target.classList.toggle('on', loop); if (action) action.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity); };
+$('btnSeq').onclick = () => { seq = 0; clipSel.value = robo[0].name; play(robo[0].name); };
+mixer.addEventListener('finished', () => {
+  if (seq === null) return;
+  seq = (seq + 1) % robo.length; clipSel.value = robo[seq].name; play(robo[seq].name);
+});
+$('speed').oninput = e => { mixer.timeScale = +e.target.value; $('speedV').textContent = (+e.target.value).toFixed(1) + '×'; };
+let scrubbing = false;
+$('scrub').oninput = e => { if (!action) play(clipSel.value); scrubbing = true; action.paused = false; action.time = +e.target.value; mixer.update(0); action.paused = true; };
+$('scrub').onchange = () => { scrubbing = false; };
+
+// ------------------------------------------------------------------ árvore de peças
+const treeEl = $('tree');
+const liOf = new Map();
+// só nós reais do glTF entram na árvore (o GLTFLoader cria filhos extras para malhas com vários materiais)
+const isNode = o => { const a = gPlanta.parser.associations.get(o); return !!a && a.nodes !== undefined; };
+const nodeKids = o => o === estoqueGrp ? [] : o.children.flatMap(c => ((isNode(c) && c.name) || c === estoqueGrp) ? [c] : nodeKids(c));
+function makeTree(obj, depth) {
+  const li = document.createElement('li');
+  const kids = nodeKids(obj);
+  const row = document.createElement('div');
+  const tg = document.createElement('span'); tg.className = 'tg'; tg.textContent = kids.length ? '▾' : '·';
+  const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = obj.visible;
+  cb.onchange = () => { obj.visible = cb.checked; };
+  const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = obj.name || '(sem nome)'; nm.title = obj.name;
+  nm.onclick = () => select(obj, true);
+  row.append(tg, cb, nm); li.appendChild(row);
+  liOf.set(obj, { li, row, cb });
+  if (kids.length) {
+    const ul = document.createElement('ul');
+    for (const k of kids) ul.appendChild(makeTree(k, depth + 1));
+    li.appendChild(ul);
+    tg.onclick = () => { li.classList.toggle('closed'); tg.textContent = li.classList.contains('closed') ? '▸' : '▾'; };
+    if (depth >= 2) { li.classList.add('closed'); tg.textContent = '▸'; }
+  }
+  return li;
+}
+const ulRoot = document.createElement('ul'); ulRoot.appendChild(makeTree(planta.children[0] || planta, 0)); treeEl.appendChild(ulRoot);
+$('busca').oninput = e => {
+  const q = e.target.value.trim().toUpperCase();
+  for (const [obj, { li }] of liOf) {
+    if (!q) { li.style.display = ''; continue; }
+    let hit = false; obj.traverse(o => { if (o.name.toUpperCase().includes(q)) hit = true; });
+    li.style.display = hit ? '' : 'none';
+    if (hit) li.classList.remove('closed');
+  }
+};
+
+// ------------------------------------------------------------------ seleção, info e medição
+const ray = new THREE.Raycaster(), mouse = new THREE.Vector2();
+const selBox = new THREE.Box3Helper(new THREE.Box3(), 0x8fd14f); selBox.visible = false; scene.add(selBox);
+let selected = null;
+function select(obj, fly = false) {
+  selected = obj;
+  for (const { row } of liOf.values()) row.classList.remove('sel');
+  const info = $('info');
+  if (!obj) { selBox.visible = false; info.style.display = 'none'; return; }
+  const b = new THREE.Box3().setFromObject(obj);
+  selBox.box.copy(b); selBox.visible = true;
+  const e = liOf.get(obj);
+  if (e) { e.row.classList.add('sel'); let p = e.li.parentElement; while (p && p !== treeEl) { if (p.tagName === 'LI') p.classList.remove('closed'); p = p.parentElement; } e.row.scrollIntoView({ block: 'nearest' }); }
+  const wp = obj.getWorldPosition(new THREE.Vector3()), sz = b.getSize(new THREE.Vector3());
+  const path = []; for (let p = obj; p && p !== planta; p = p.parent) if (liOf.has(p)) path.unshift(p.name);
+  let tris = 0; obj.traverse(o => { if (o.isMesh) tris += (o.geometry.index ? o.geometry.index.count : o.geometry.attributes.position.count) / 3; });
+  const mats = new Set(); obj.traverse(o => { if (o.isMesh) [].concat(o.material).forEach(m => mats.add(m.name)); });
+  const mm = v => (v * 1000).toFixed(0);
+  info.innerHTML = `<h3>${obj.name}</h3><table>
+    <tr><td>Caminho</td><td>${path.join(' › ')}</td></tr>
+    <tr><td>Pivô (m)</td><td>${wp.x.toFixed(3)}, ${wp.y.toFixed(3)}, ${wp.z.toFixed(3)}</td></tr>
+    <tr><td>Dimensões</td><td>${mm(sz.x)} × ${mm(sz.y)} × ${mm(sz.z)} mm</td></tr>
+    <tr><td>Triângulos</td><td>${Math.round(tris).toLocaleString('pt-BR')}</td></tr>
+    <tr><td>Materiais</td><td>${[...mats].slice(0, 6).join(', ')}</td></tr>
+    ${obj.userData.unityAnimated ? '<tr><td>Animação</td><td>possui clips no Unity</td></tr>' : ''}
+  </table>`;
+  info.style.display = 'block';
+  if (fly) frame(obj, camera.position.clone().sub(controls.target), 1.6);
+}
+let down = null;
+renderer.domElement.addEventListener('pointerdown', e => down = [e.clientX, e.clientY]);
+const measure = { pts: [], line: null, marks: [] };
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 4) return;
+  const r = renderer.domElement.getBoundingClientRect();
+  mouse.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(mouse, camera);
+  const targets = [planta]; if (cenario && cenario.visible) targets.push(cenario);
+  const hit = ray.intersectObjects(targets, true).find(h => h.object.visible && isVisible(h.object));
+  if (e.shiftKey) { if (hit) addMeasure(hit.point); return; }
+  if (!hit) { select(null); return; }
+  let o = hit.object;
+  if (!liOf.has(o)) while (o.parent && !liOf.has(o)) o = o.parent;
+  select(o);
+});
+function isVisible(o) { for (; o; o = o.parent) if (!o.visible) return false; return true; }
+function addMeasure(p) {
+  if (measure.pts.length === 2) clearMeasure();
+  measure.pts.push(p.clone());
+  const m = new THREE.Mesh(new THREE.SphereGeometry(0.005, 12, 8), new THREE.MeshBasicMaterial({ color: 0xe0b341, depthTest: false }));
+  m.position.copy(p); m.renderOrder = 11; scene.add(m); measure.marks.push(m);
+  if (measure.pts.length === 2) {
+    const g = new THREE.BufferGeometry().setFromPoints(measure.pts);
+    measure.line = new THREE.Line(g, new THREE.LineBasicMaterial({ color: 0xe0b341, depthTest: false })); measure.line.renderOrder = 11; scene.add(measure.line);
+    const d = measure.pts[0].distanceTo(measure.pts[1]);
+    const dv = measure.pts[1].clone().sub(measure.pts[0]);
+    $('status').innerHTML = `Distância: <b style="color:var(--warn)">${(d * 1000).toFixed(1)} mm</b> (Δx ${(dv.x * 1000).toFixed(0)}, Δy ${(dv.y * 1000).toFixed(0)}, Δz ${(dv.z * 1000).toFixed(0)} mm)`;
+  } else $('status').textContent = 'Medição: Shift+clique no segundo ponto';
+}
+function clearMeasure() { measure.marks.forEach(m => scene.remove(m)); if (measure.line) scene.remove(measure.line); measure.pts = []; measure.marks = []; measure.line = null; setStatus(); }
+addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'Escape') { select(null); clearMeasure(); }
+  if ((e.key === 'f' || e.key === 'F') && selected) frame(selected, camera.position.clone().sub(controls.target), 1.6);
+  if ((e.key === 'h' || e.key === 'H') && selected) { selected.visible = false; const t = liOf.get(selected); if (t) t.cb.checked = false; select(null); }
+});
+
+// ------------------------------------------------------------------ status e laço
+function setStatus() {
+  let tris = 0; scene.traverse(o => { if (o.isMesh && isVisible(o)) tris += (o.geometry.index ? o.geometry.index.count : 0) / 3; });
+  $('status').textContent = `${Math.round(tris / 1000).toLocaleString('pt-BR')} mil triângulos · ${clips.length} animações · escala ${planta.children[0].scale.x} m/unid.`;
+}
+setStatus();
+cams[0][1](); camera.position.copy(tween.p1); controls.target.copy(tween.t1); tween = null;
+
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const dt = clock.getDelta();
+  if (tween) {
+    const k = Math.min(1, (performance.now() - tween.s) / tween.ms), e = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
+    camera.position.lerpVectors(tween.p0, tween.p1, e); controls.target.lerpVectors(tween.t0, tween.t1, e);
+    if (k >= 1) tween = null;
+  }
+  if (!scrubbing) mixer.update(dt);
+  if (action && !scrubbing) $('scrub').value = action.time;
+  if (selected && action && action.isRunning()) selBox.box.setFromObject(selected);
+  controls.update();
+  renderer.render(scene, camera);
+});
+window.__smart40 = { scene, planta, camera, controls, play, frame, byName, clips };
+</script>
+</body>
+</html>

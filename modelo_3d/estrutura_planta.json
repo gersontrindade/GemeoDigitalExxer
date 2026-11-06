@@ -1,0 +1,1484 @@
+{
+ "arquivo": "smart40_planta_raw.glb",
+ "metros_por_unidade_unity": 0.022,
+ "hierarquia": [
+  {
+   "nome": "Smart40_planta",
+   "filhos": [
+    {
+     "nome": "Bancadas",
+     "filhos": [
+      {
+       "nome": "ESTOQUE_3D",
+       "malha": "ESTOQUE_3D",
+       "filhos": [
+        {
+         "nome": "ESTOQUE_ALIMENTADOR_3D",
+         "malha": "ESTOQUE_ALIMENTADOR_3D",
+         "filhos": [
+          {
+           "nome": "ESTOQUE_VENTOSA_3D",
+           "malha": "ESTOQUE_VENTOSA_3D"
+          }
+         ]
+        },
+        {
+         "nome": "ESTOQUE_BOTAO_EMERGENCIA_3D",
+         "malha": "ESTOQUE_BOTAO_EMERGENCIA_3D"
+        },
+        {
+         "nome": "ESTOQUE_BOTAO_MANOPLA_3D",
+         "malha": "ESTOQUE_BOTAO_MANOPLA_3D"
+        },
+        {
+         "nome": "ESTOQUE_BRACO_3D",
+         "malha": "ESTOQUE_BRACO_3D",
+         "filhos": [
+          {
+           "nome": "ESTOQUE_ELEVADOR_3D",
+           "malha": "ESTOQUE_ELEVADOR_3D",
+           "filhos": [
+            {
+             "nome": "ESTOQUE_BRACO_2_3D",
+             "malha": "ESTOQUE_BRACO_2_3D",
+             "filhos": [
+              {
+               "nome": "ESTOQUE_GARRA_DIREITA_3D",
+               "malha": "ESTOQUE_GARRA_DIREITA_3D"
+              },
+              {
+               "nome": "ESTOQUE_GARRA_ESQUERDA_3D",
+               "malha": "ESTOQUE_GARRA_ESQUERDA_3D"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "nome": "ESTOQUE_LOGO",
+         "malha": "ESTOQUE_LOGO"
+        },
+        {
+         "nome": "ESTOQUE_LOGO_AUTTOM_FRONTAL",
+         "malha": "ESTOQUE_LOGO_AUTTOM_FRONTAL"
+        },
+        {
+         "nome": "ESTOQUE_MICRO_CILINDRO_1_3D",
+         "malha": "ESTOQUE_MICRO_CILINDRO_1_3D"
+        },
+        {
+         "nome": "ESTOQUE_MICRO_CILINDRO_2_3D",
+         "malha": "ESTOQUE_MICRO_CILINDRO_2_3D"
+        },
+        {
+         "nome": "ESTOQUE_PAINEL_3D",
+         "malha": "ESTOQUE_PAINEL_3D"
+        }
+       ]
+      },
+      {
+       "nome": "EXPEDICAO_3D",
+       "malha": "EXPEDICAO_3D",
+       "filhos": [
+        {
+         "nome": "EXPEDICAO_BOTAO_EMERGENCIA_3D",
+         "malha": "EXPEDICAO_BOTAO_EMERGENCIA_3D"
+        },
+        {
+         "nome": "EXPEDICAO_BOTAO_MANOPLA_3D",
+         "malha": "EXPEDICAO_BOTAO_MANOPLA_3D"
+        },
+        {
+         "nome": "EXPEDICAO_BRACO_HORIZONTAL_3D",
+         "malha": "EXPEDICAO_BRACO_HORIZONTAL_3D",
+         "filhos": [
+          {
+           "nome": "EXPEDICAO_BRACO_ROTACAO_3D",
+           "malha": "EXPEDICAO_BRACO_ROTACAO_3D",
+           "filhos": [
+            {
+             "nome": "EXPEDICAO_BRACO_ALTURA_3D",
+             "malha": "EXPEDICAO_BRACO_ALTURA_3D",
+             "filhos": [
+              {
+               "nome": "EXPEDICAO_ALIMENTADOR_3D",
+               "malha": "EXPEDICAO_ALIMENTADOR_3D",
+               "filhos": [
+                {
+                 "nome": "EXPEDICAO_VENTOSA_3D",
+                 "malha": "EXPEDICAO_VENTOSA_3D"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "nome": "EXPEDICAO_LOGO",
+         "malha": "EXPEDICAO_LOGO"
+        },
+        {
+         "nome": "EXPEDICAO_LOGO_AUTTOM_FRONTAL",
+         "malha": "EXPEDICAO_LOGO_AUTTOM_FRONTAL"
+        },
+        {
+         "nome": "EXPEDICAO_MICRO_CILINDRO_1_3D",
+         "malha": "EXPEDICAO_MICRO_CILINDRO_1_3D"
+        },
+        {
+         "nome": "EXPEDICAO_MICRO_CILINDRO_2_3D",
+         "malha": "EXPEDICAO_MICRO_CILINDRO_2_3D"
+        },
+        {
+         "nome": "EXPEDICAO_PAINEL_3D",
+         "malha": "EXPEDICAO_PAINEL_3D"
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_3D",
+       "malha": "PROCESSO_3D",
+       "filhos": [
+        {
+         "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+         "malha": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+         "animado_no_unity": true,
+         "filhos": [
+          {
+           "nome": "PROCESSO_ATUADOR_FRONTAL_3D",
+           "malha": "PROCESSO_ATUADOR_FRONTAL_3D",
+           "filhos": [
+            {
+             "nome": "PROCESSO_ATUADOR_VERTICAL_3D",
+             "malha": "PROCESSO_ATUADOR_VERTICAL_3D",
+             "filhos": [
+              {
+               "nome": "PROCESSO_VENTOSA_3D",
+               "malha": "PROCESSO_VENTOSA_3D"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "nome": "PROCESSO_BOTAO_EMERGENCIA_3D",
+         "malha": "PROCESSO_BOTAO_EMERGENCIA_3D"
+        },
+        {
+         "nome": "PROCESSO_BOTAO_MANOPLA_3D",
+         "malha": "PROCESSO_BOTAO_MANOPLA_3D"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_AMARELAS",
+         "malha": "PROCESSO_LAMINAS_AMARELAS"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_AZUIS",
+         "malha": "PROCESSO_LAMINAS_AZUIS"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_BRANCAS",
+         "malha": "PROCESSO_LAMINAS_BRANCAS"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_PRETAS",
+         "malha": "PROCESSO_LAMINAS_PRETAS"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_VERDES",
+         "malha": "PROCESSO_LAMINAS_VERDES"
+        },
+        {
+         "nome": "PROCESSO_LAMINAS_VERMELHAS",
+         "malha": "PROCESSO_LAMINAS_VERMELHAS"
+        },
+        {
+         "nome": "PROCESSO_LOGO",
+         "malha": "PROCESSO_LOGO"
+        },
+        {
+         "nome": "PROCESSO_LOGO_AUTTOM_FRONTAL",
+         "malha": "PROCESSO_LOGO_AUTTOM_FRONTAL"
+        },
+        {
+         "nome": "PROCESSO_PAINEL_3D",
+         "malha": "PROCESSO_PAINEL_3D"
+        }
+       ]
+      },
+      {
+       "nome": "QUALIDADE_3D",
+       "malha": "QUALIDADE_3D",
+       "filhos": [
+        {
+         "nome": "CUBO_DECORACAO",
+         "malha": "CUBO_DECORACAO"
+        },
+        {
+         "nome": "CUBO_DECORACAO_001",
+         "malha": "CUBO_DECORACAO_001"
+        },
+        {
+         "nome": "CUBO_DECORACAO_002",
+         "malha": "CUBO_DECORACAO_002"
+        },
+        {
+         "nome": "QUALIDADE_ALIMENTADOR_3D",
+         "malha": "QUALIDADE_ALIMENTADOR_3D",
+         "filhos": [
+          {
+           "nome": "QUALIDADE_VENTOSA_3D",
+           "malha": "QUALIDADE_VENTOSA_3D"
+          }
+         ]
+        },
+        {
+         "nome": "QUALIDADE_BOTAO_EMERGENCIA_3D",
+         "malha": "QUALIDADE_BOTAO_EMERGENCIA_3D"
+        },
+        {
+         "nome": "QUALIDADE_BOTAO_MANOPLA_3D",
+         "malha": "QUALIDADE_BOTAO_MANOPLA_3D"
+        },
+        {
+         "nome": "QUALIDADE_LOGO",
+         "malha": "QUALIDADE_LOGO"
+        },
+        {
+         "nome": "QUALIDADE_LOGO_AUTTOM_FRONTAL",
+         "malha": "QUALIDADE_LOGO_AUTTOM_FRONTAL"
+        },
+        {
+         "nome": "QUALIDADE_MICRO_CILINDRO_1_3D",
+         "malha": "QUALIDADE_MICRO_CILINDRO_1_3D"
+        },
+        {
+         "nome": "QUALIDADE_MICRO_CILINDRO_2_3D",
+         "malha": "QUALIDADE_MICRO_CILINDRO_2_3D"
+        },
+        {
+         "nome": "QUALIDADE_PAINEL_3D",
+         "malha": "QUALIDADE_PAINEL_3D"
+        },
+        {
+         "nome": "QUALIDADE_ROBO_PARTE_11_3D",
+         "malha": "QUALIDADE_ROBO_PARTE_11_3D",
+         "animado_no_unity": true,
+         "filhos": [
+          {
+           "nome": "QUALIDADE_ROBO_PARTE_10_3D",
+           "malha": "QUALIDADE_ROBO_PARTE_10_3D",
+           "filhos": [
+            {
+             "nome": "QUALIDADE_ROBO_PARTE_9_3D",
+             "malha": "QUALIDADE_ROBO_PARTE_9_3D",
+             "filhos": [
+              {
+               "nome": "QUALIDADE_ROBO_PARTE_8_3D",
+               "malha": "QUALIDADE_ROBO_PARTE_8_3D",
+               "filhos": [
+                {
+                 "nome": "QUALIDADE_ROBO_PARTE_7_3D",
+                 "malha": "QUALIDADE_ROBO_PARTE_7_3D",
+                 "filhos": [
+                  {
+                   "nome": "QUALIDADE_ROBO_PARTE_6_3D",
+                   "malha": "QUALIDADE_ROBO_PARTE_6_3D",
+                   "filhos": [
+                    {
+                     "nome": "QUALIDADE_ROBO_PARTE_5_3D",
+                     "malha": "QUALIDADE_ROBO_PARTE_5_3D",
+                     "filhos": [
+                      {
+                       "nome": "QUALIDADE_ROBO_PARTE_4_3D",
+                       "malha": "QUALIDADE_ROBO_PARTE_4_3D",
+                       "filhos": [
+                        {
+                         "nome": "QUALIDADE_ROBO_PARTE_3_3D",
+                         "malha": "QUALIDADE_ROBO_PARTE_3_3D",
+                         "filhos": [
+                          {
+                           "nome": "QUALIDADE_ROBO_PARTE_2_3D",
+                           "malha": "QUALIDADE_ROBO_PARTE_2_3D",
+                           "filhos": [
+                            {
+                             "nome": "GARRA_ROBO_PONTA_3D",
+                             "malha": "GARRA_ROBO_PONTA_3D",
+                             "filhos": [
+                              {
+                               "nome": "GARRA_ROBO_PONTA_PINCA_1_3D",
+                               "malha": "GARRA_ROBO_PONTA_PINCA_1_3D"
+                              },
+                              {
+                               "nome": "GARRA_ROBO_PONTA_PINCA_2_3D",
+                               "malha": "GARRA_ROBO_PONTA_PINCA_2_3D"
+                              }
+                             ]
+                            },
+                            {
+                             "nome": "QUALIDADE_ROBO_PARTE_1_3D",
+                             "malha": "QUALIDADE_ROBO_PARTE_1_3D"
+                            }
+                           ]
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "nome": "QUALIDADE_TAMPA_DECORATIVA",
+         "malha": "QUALIDADE_TAMPA_DECORATIVA"
+        },
+        {
+         "nome": "QUALIDADE_TAMPA_DECORATIVA_2",
+         "malha": "QUALIDADE_TAMPA_DECORATIVA_2"
+        }
+       ]
+      },
+      {
+       "nome": "RETORNO_DIREITA_BASE_3D",
+       "malha": "RETORNO_DIREITA_BASE_3D",
+       "filhos": [
+        {
+         "nome": "RETORNO_DIREITA_CIRCULO_3D",
+         "malha": "RETORNO_DIREITA_CIRCULO_3D"
+        }
+       ]
+      },
+      {
+       "nome": "RETORNO_ESQUERDA_BASE_3D",
+       "malha": "RETORNO_ESQUERDA_BASE_3D",
+       "filhos": [
+        {
+         "nome": "RETORNO_ESQUERDA_CIRCULO_3D",
+         "malha": "RETORNO_ESQUERDA_CIRCULO_3D"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Acessorios_e_Pecas",
+     "filhos": [
+      {
+       "nome": "SMARTBLOCK_BASE TESTE MONTAGEM (5)",
+       "filhos": [
+        {
+         "nome": "SMARTBLOCK_BASE_3D (MESH)",
+         "malha": "SMARTBLOCK_BASE_3D"
+        }
+       ]
+      },
+      {
+       "nome": "QUALIDADE_HOLDERS",
+       "filhos": [
+        {
+         "nome": "SMARTBLOCK_HOLDER_MONTAGEM_B1",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER_MONTAGEM_B2",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER_MONTAGEM_B3",
+         "marcador": true
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_ESTEIRA_COLISOES",
+       "filhos": [
+        {
+         "nome": "LOCAL_LAMINA_DESENHAR",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_1",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_2",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_3",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_4",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_5",
+         "marcador": true
+        },
+        {
+         "nome": "LOCAL_LAMINA_FICAR_6",
+         "marcador": true
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_4",
+       "marcador": true
+      },
+      {
+       "nome": "PAINEL_QUALIDADE",
+       "malha": "Plane"
+      },
+      {
+       "nome": "EXPEDICAO_SINALEIROS",
+       "filhos": [
+        {
+         "nome": "EXPEDICAO_ICONE_SETA_EMERGENCIA",
+         "malha": "Plane"
+        }
+       ]
+      },
+      {
+       "nome": "PAINEL_EXPEDICAO",
+       "malha": "Plane"
+      },
+      {
+       "nome": "SMARTBLOCK_INSTANCIADOR_ESTEIRA (2)",
+       "marcador": true
+      },
+      {
+       "nome": "EXPEDICAO_HOLDERS",
+       "filhos": [
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 12)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 11)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 10)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 9)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 8)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 7)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 6)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 5)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 4)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 3)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 2)",
+         "marcador": true
+        },
+        {
+         "nome": "SMARTBLOCK_HOLDER (POS 1)",
+         "marcador": true
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_3",
+       "marcador": true
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_5",
+       "marcador": true
+      },
+      {
+       "nome": "ESTOQUE_HOLDER_GARRA",
+       "marcador": true
+      },
+      {
+       "nome": "QUALIDADE_SINALEIROS",
+       "filhos": [
+        {
+         "nome": "QUALIDADE_ICONE_SETA_EMERGENCIA",
+         "malha": "Plane"
+        }
+       ]
+      },
+      {
+       "nome": "QUALIDADE_HOLDER_VENTOSA",
+       "marcador": true
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_2",
+       "marcador": true
+      },
+      {
+       "nome": "PROCESSO_HOLDER_VENTOSA",
+       "marcador": true
+      },
+      {
+       "nome": "SMARTBLOCK_BASE TESTE MONTAGEM (6)",
+       "filhos": [
+        {
+         "nome": "SMARTBLOCK_BASE_3D (MESH)__2",
+         "malha": "SMARTBLOCK_BASE_3D"
+        }
+       ]
+      },
+      {
+       "nome": "QUALIDADE_HOLDER_BRACO",
+       "marcador": true
+      },
+      {
+       "nome": "ESTOQUE_INSTANCIADOR_LOCAIS",
+       "filhos": [
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (1)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (2)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (3)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (4)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (5)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (6)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (7)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (8)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (9)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (10)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (11)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (12)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (13)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (14)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (15)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (16)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (17)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (18)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (19)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (20)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (21)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (22)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (23)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (24)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (25)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (26)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (27)",
+         "marcador": true
+        },
+        {
+         "nome": "ESTOQUE_INSTANCIADOR_LOCAL (28)",
+         "marcador": true
+        }
+       ]
+      },
+      {
+       "nome": "PAINEL_PROCESSO",
+       "malha": "Plane"
+      },
+      {
+       "nome": "INSTANCIADOR_LAMINAS",
+       "filhos": [
+        {
+         "nome": "INSTANCIADOR_LAMINA_BRANCA_LOCAL",
+         "marcador": true
+        },
+        {
+         "nome": "INSTANCIADOR_LAMINA_AMARELA_LOCAL",
+         "marcador": true
+        },
+        {
+         "nome": "INSTANCIADOR_LAMINA_AZUL_LOCAL",
+         "marcador": true
+        },
+        {
+         "nome": "INSTANCIADOR_LAMINA_PRETA_LOCAL",
+         "marcador": true
+        },
+        {
+         "nome": "INSTANCIADOR_LAMINA_VERMELHA_LOCAL",
+         "marcador": true
+        },
+        {
+         "nome": "INSTANCIADOR_LAMINA_VERDE_LOCAL",
+         "marcador": true
+        }
+       ]
+      },
+      {
+       "nome": "ESTOQUE_HOLDERS",
+       "filhos": [
+        {
+         "nome": "BANCADA_ESTOQUE_ANDAR_1_HOLDER",
+         "filhos": [
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (28)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (26)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (27)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (25)",
+           "marcador": true
+          }
+         ]
+        },
+        {
+         "nome": "BANCADA_ESTOQUE_ANDAR_2_HOLDER",
+         "filhos": [
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (1)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (5)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (9)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (13)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (17)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (21)",
+           "marcador": true
+          }
+         ]
+        },
+        {
+         "nome": "BANCADA_ESTOQUE_ANDAR_3_HOLDER",
+         "filhos": [
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (2)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (6)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (10)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (18)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (22)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (14)",
+           "marcador": true
+          }
+         ]
+        },
+        {
+         "nome": "BANCADA_ESTOQUE_ANDAR_4_HOLDER",
+         "filhos": [
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (3)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (7)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (11)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (15)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (19)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (23)",
+           "marcador": true
+          }
+         ]
+        },
+        {
+         "nome": "BANCADA_ESTOQUE_ANDAR_5_HOLDER",
+         "filhos": [
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (4)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (8)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (12)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (16)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (20)",
+           "marcador": true
+          },
+          {
+           "nome": "SMARTBLOCK_HOLDER (ESTOQUE GARRA) (24)",
+           "marcador": true
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_6",
+       "marcador": true
+      },
+      {
+       "nome": "SMARTBLOCK_INSTANCIADOR_ESTEIRA (1)",
+       "marcador": true
+      },
+      {
+       "nome": "ESTOQUE_SINALEIROS",
+       "filhos": [
+        {
+         "nome": "ESTOQUE_ICONE_SETA_EMERGENCIA",
+         "malha": "Plane"
+        }
+       ]
+      },
+      {
+       "nome": "EXPEDICAO_HOLDER_VENTOSA",
+       "marcador": true
+      },
+      {
+       "nome": "PROCESSO_INSTANCIADOR_LAMINA_POS_1",
+       "marcador": true
+      },
+      {
+       "nome": "SMARTBLOCK_BASE TESTE MONTAGEM (4)",
+       "filhos": [
+        {
+         "nome": "SMARTBLOCK_BASE_3D (MESH)__3",
+         "malha": "SMARTBLOCK_BASE_3D"
+        }
+       ]
+      },
+      {
+       "nome": "PROCESSO_HOLDER_VENTOSA_MESA (APENAS VISUAL)",
+       "marcador": true
+      },
+      {
+       "nome": "ESTOQUE_HOLDER_VENTOSA",
+       "marcador": true
+      },
+      {
+       "nome": "PROCESSO_SINALEIROS",
+       "filhos": [
+        {
+         "nome": "PROCESSO_ICONE_SETA_EMERGENCIA",
+         "malha": "Plane"
+        }
+       ]
+      },
+      {
+       "nome": "PAINEL_ESTOQUE",
+       "malha": "Plane"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "animacoes": [
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_INICIAL",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_1",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 0.98,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_2",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_3",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 0.98,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_4",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_5",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_BUSCAR_LAMINA_6",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_CANETA",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 5.98,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_MEIO",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 3.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_1",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_2",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_3",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_4",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_5",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "PROCESSO_ATUADOR_HORIZONTAL_3D_POSICAO_LARGAR_LAMINA_6",
+   "dono": "PROCESSO_ATUADOR_HORIZONTAL_3D",
+   "duracao_s": 1.0,
+   "nos": [
+    "PROCESSO_ATUADOR_FRONTAL_3D",
+    "PROCESSO_ATUADOR_HORIZONTAL_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_24_HOME",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 2.0,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_1_PEGAR_BLOCO_ESTEIRA_COLOCAR_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.0,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_2_PEGAR_BLOCO_ESTEIRA_COLOCAR_B2",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.0,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_3_PEGAR_BLOCO_ESTEIRA_COLOCAR_B3",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.0,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_19_EMPILHAR_BLOCO_2_ANDARES_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.78,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_20_EMPILHAR_BLOCO_3_ANDARES_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 20.43,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_21_PEGAR_BLOCO_B3_COLOCAR_ESTEIRA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.0,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_22_PEGAR_BLOCO_B1_COLOCAR_ESTEIRA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 10.02,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_18_PEGAR_BLOCO_B3_COLOCAR_TAMPA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 18.23,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_4_PEGAR_LAMINA_LOCAL_1_ESQUERDA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_9_ANEXANDO_LAMINA_LADO_1_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_10_ANEXANDO_LAMINA_LADO_3_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_11_ANEXANDO_LAMINA_LADO_2_B1",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_5_PEGAR_LAMINA_LOCAL_2_ESQUERDA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_6_PEGAR_LAMINA_LOCAL_3_ESQUERDA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_1_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_25_PEGAR_LAMINA_LOCAL_1_DIREITA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_26_PEGAR_LAMINA_LOCAL_2_DIREITA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_27_PEGAR_LAMINA_LOCAL_3_DIREITA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 6.08,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_13_ANEXANDO_LAMINA_LADO_3_B2",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_12_ANEXANDO_LAMINA_LADO_1_B2",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_14_ANEXANDO_LAMINA_LADO_2_B2",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_15_ANEXANDO_LAMINA_LADO_1_B3",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_16_ANEXANDO_LAMINA_LADO_3_B3",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_17_ANEXANDO_LAMINA_LADO_2_B3",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 5.58,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_7_ANALISAR_LAMINA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 3.52,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  },
+  {
+   "nome": "QUALIDADE_8_REPROVAR_LAMINA",
+   "dono": "QUALIDADE_ROBO_PARTE_11_3D",
+   "duracao_s": 9.43,
+   "nos": [
+    "GARRA_ROBO_PONTA_3D",
+    "GARRA_ROBO_PONTA_PINCA_1_3D",
+    "GARRA_ROBO_PONTA_PINCA_2_3D",
+    "QUALIDADE_ROBO_PARTE_10_3D",
+    "QUALIDADE_ROBO_PARTE_2_3D",
+    "QUALIDADE_ROBO_PARTE_3_3D",
+    "QUALIDADE_ROBO_PARTE_4_3D",
+    "QUALIDADE_ROBO_PARTE_6_3D",
+    "QUALIDADE_ROBO_PARTE_9_3D"
+   ]
+  }
+ ]
+}

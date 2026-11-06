@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>intelib</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Modbus">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Smart 4.0 (Senai)\Smart 4.0 (Senai)_Data\Managed\Modbus.dll</HintPath>
+    </Reference>
+    <Reference Include="simlib">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\Program Files\Smart 4.0 (Senai)\Smart 4.0 (Senai)_Data\Managed\simlib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

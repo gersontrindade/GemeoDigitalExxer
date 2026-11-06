@@ -1,0 +1,101 @@
+using UnityEngine;
+
+public class SCRIPT_QUALIDADE_ROBO_PARTE_11_3D : MonoBehaviour
+{
+	public GameObject QUALIDADE_LOCAL_INSTANCIAR_FLASH;
+
+	public GameObject GAMEOBJECT_FLASH;
+
+	public GameObject QUALIDADE_HOLDER_BRACO;
+
+	public GameObject QUALIDADE_LOCAL_INSTANCIAR_TAMPA;
+
+	public GameObject QUALIDADE_TAMPA;
+
+	public static GameObject QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA;
+
+	public void MONTAGEM_FINALIZOU_ANIMACAO()
+	{
+		MonoBehaviour.print("MONTAGEM_FINALIZOU_ANIMACAO");
+		Administracao.EXECUTANDO_ANIMACAO_QUALIDADE = false;
+	}
+
+	public void MONTAGEM_INICIOU_ANIMACAO()
+	{
+		MonoBehaviour.print("MONTAGEM_INICIOU_ANIMACAO");
+		Administracao.EXECUTANDO_ANIMACAO_QUALIDADE = true;
+	}
+
+	private void Start()
+	{
+		QUALIDADE_HOLDER_BRACO = GameObject.Find("QUALIDADE_HOLDER_BRACO");
+		QUALIDADE_LOCAL_INSTANCIAR_TAMPA = GameObject.Find("QUALIDADE_LOCAL_INSTANCIAR_TAMPA");
+	}
+
+	private void VOID_INSTANCIAR_FLASH_AGORA()
+	{
+	}
+
+	private void MENSAGEM_INSPECAO_FALHOU_PARTE_1()
+	{
+	}
+
+	private void MENSAGEM_INSPECAO_FALHOU_PARTE_1_2()
+	{
+	}
+
+	public void MENSAGEM_QUALIDADE_PARADA_PELA_ANIMACAO_PARADO()
+	{
+	}
+
+	public void MENSAGEM_QUALIDADE_PARADA_PELA_ANIMACAO_INSPECAO_FALHOU()
+	{
+	}
+
+	public void ATIVAR_QUALIDADE_HOLDER_BRACO_COLISAO()
+	{
+		QUALIDADE_HOLDER_BRACO.SetActive(value: true);
+	}
+
+	public void DESATIVAR_QUALIDADE_HOLDER_BRACO_COLISAO()
+	{
+		QUALIDADE_HOLDER_BRACO.transform.DetachChildren();
+		QUALIDADE_HOLDER_BRACO.SetActive(value: false);
+		if (QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA != null)
+		{
+			QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA.GetComponent<SCRIPT_SMARTBLOCK>().POSSO_VIRAR_PARENTE_LOCAL_LAMINA = true;
+			QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA.GetComponent<SCRIPT_SMARTBLOCK>().LAMINA_ESTA_NA_BANCADA_PROCESSO = false;
+			QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA.GetComponent<Rigidbody>().useGravity = true;
+			QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+			QUALIDADE_LAMINA_SENDO_SEGURADA_AGORA = null;
+		}
+	}
+
+	public void ROTACIONAR_QUALIDADE_HOLDER_BRACO_COLISAO_PEGAR_BLOCO_3_ANDARES()
+	{
+		QUALIDADE_HOLDER_BRACO.transform.localEulerAngles = new Vector3(141.958f, -94.901f, -66.13599f);
+	}
+
+	public void ROTACIONAR_QUALIDADE_HOLDER_BRACO_COLISAO_LARGAR_BLOCO_3_ANDARES()
+	{
+		QUALIDADE_HOLDER_BRACO.transform.localEulerAngles = new Vector3(141.958f, -94.901f, -96.13599f);
+		QUALIDADE_HOLDER_BRACO.transform.localPosition = new Vector3(-2.215357f, -2.850226f, -20.4105f);
+	}
+
+	public void ROTACIONAR_QUALIDADE_HOLDER_BRACO_COLISAO_PEGAR_TAMPA()
+	{
+		QUALIDADE_HOLDER_BRACO.transform.localEulerAngles = new Vector3(141.958f, -94.901f, -26.96698f);
+		QUALIDADE_HOLDER_BRACO.transform.localPosition = new Vector3(0.09f, 0.26f, -18.79f);
+	}
+
+	public void QUALIDADE_INSTANCIAR_TAMPA()
+	{
+		Object.Instantiate(QUALIDADE_TAMPA, QUALIDADE_LOCAL_INSTANCIAR_TAMPA.transform.position, QUALIDADE_LOCAL_INSTANCIAR_TAMPA.transform.rotation);
+	}
+
+	public void ROTACIONAR_QUALIDADE_HOLDER_BRACO_PEGAR_LAMINA()
+	{
+		QUALIDADE_HOLDER_BRACO.transform.localEulerAngles = new Vector3(142.22f, -86.86099f, 4.830994f);
+		QUALIDADE_HOLDER_BRACO.transform.localPosition = new Vector3(-0.43f, -0.3f, -22.5f);
+	}
+}

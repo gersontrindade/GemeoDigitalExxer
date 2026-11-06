@@ -1,0 +1,346 @@
+newmtl COLISAO_SMARTBLOCK_82
+Kd 0.0000 0.5078 1.0000
+d 0.0000
+
+newmtl faixa_cinza_112
+Kd 0.0425 0.2788 1.0000
+d 0.1765
+
+newmtl 3_COLISAO_TRIGGERS_PECA_NO_LOCAL_78
+Kd 0.9608 0.4752 0.0000
+d 0.0000
+
+newmtl 1_COLISAO_HOLDER_76
+Kd 0.9623 0.0000 0.0000
+d 0.0000
+
+newmtl 0_COLISAO_PREVINE_PARENTES_75
+Kd 0.8745 0.0000 0.8627
+d 0.0000
+
+newmtl ICONE_SETA_BOTAO_EMERGENCIA_90
+Kd 0.0000 0.1665 0.9811
+map_Kd textures/seta_botao_emergencia_148.png
+
+newmtl GLOW_BOTAO_VERDE_87
+Kd 0.0000 0.1665 0.9811
+map_Kd textures/Glow_Verde_Sprite_1_218.png
+
+newmtl SOMBRA_1_92
+Kd 0.8302 0.8302 0.8302
+d 0.5451
+map_Kd textures/sombra_3_196.png
+
+newmtl faixa_chao_111
+Kd 0.7230 1.0000 0.0000
+d 0.2039
+
+newmtl GLOW_BOTAO_AZUL_86
+Kd 0.0000 0.1665 0.9811
+map_Kd textures/Glow_Verde_Sprite_1_218.png
+
+newmtl SOMBRA_REDONDA_1_94
+Kd 0.8302 0.8302 0.8302
+d 0.5451
+map_Kd textures/sombra_1_197.png
+
+newmtl logo_senai_3d_shadow_97
+Kd 0.8302 0.8302 0.8302
+d 0.8588
+map_Kd textures/logo_senai_3d_shadow_158.png
+
+newmtl MATERIAL_PLASTICO_PRETO_53
+Kd 0.0849 0.0849 0.0849
+
+newmtl 0_COLISAO_ESTOU_BANCADA_74
+Kd 0.6157 0.6691 0.9529
+d 0.0000
+
+newmtl 4_COLISAO_ESTEIRA_79
+Kd 0.0531 1.0000 0.0000
+d 0.0000
+
+newmtl painel_qualidade_103
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/painel_qualidade_136.png
+
+newmtl vidro_1_118
+Kd 1.0000 1.0000 1.0000
+d 0.7255
+
+newmtl COLISAO_OBJETOS_80
+Kd 0.2389 0.0000 1.0000
+d 0.0000
+
+newmtl logo_smart_4.0_shadow_65
+Kd 0.0000 0.0000 0.0000
+map_Kd textures/logo_smart_4.0_shadow_192.png
+
+newmtl RETORNO_GIRO_COLISAO_106
+Kd 1.0000 1.0000 1.0000
+d 0.1255
+map_Kd textures/Knob_131.png
+
+newmtl exsto_96
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/logo_senai_137.png
+
+newmtl painel_expedicao_101
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/painel_expedicao_156.png
+
+newmtl vidro_2_119
+Kd 0.8853 0.9006 0.9245
+d 0.8510
+
+newmtl GLOW_BOTAO_VERMELHO_88
+Kd 0.0000 0.1665 0.9811
+map_Kd textures/Glow_Verde_Sprite_1_218.png
+
+newmtl SOMBRA_REDONDA_2_MAIS_FRACA_95
+Kd 0.8302 0.8302 0.8302
+d 0.1137
+map_Kd textures/sombra_1_197.png
+
+newmtl SOMBRA_1_MAIS_FRACA_91
+Kd 0.8302 0.8302 0.8302
+d 0.2235
+map_Kd textures/sombra_3_196.png
+
+newmtl COLISAO_RETORNO_BASE_81
+Kd 0.0000 0.7379 1.0000
+d 0.0000
+
+newmtl 2_COLISAO_OBJETOS_ROTACIONAIS_77
+Kd 1.0000 0.7187 0.0000
+d 0.0000
+
+newmtl ESTOU_EM_TRIGGER_PODE_VIRAR_PARENTE_83
+Kd 0.8334 1.0000 0.0000
+d 0.0000
+
+newmtl parede_adicional_61
+Kd 0.9340 0.9336 0.8855
+
+newmtl painel_laminador_102
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/painel_laminador_223.png
+
+newmtl textura_fix_parede_98
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/textura_fix_parede_203.png
+
+newmtl SOMBRA_BANCADA_93
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/sombra_3_196.png
+
+newmtl MATERIAL_METAL_CINZA_PADRAO_20
+Kd 0.8491 0.8491 0.8491
+map_Kd textures/texutre_metal_1_sprite_213.png
+
+newmtl MATERIAL_PLASTICO_PRETO_22
+Kd 0.0348 0.0348 0.0348
+
+newmtl MATERIAL_PLASTICO_PRETO_2_PAINEL_23
+Kd 0.3962 0.3962 0.3962
+
+newmtl LOGO_AUTTOM_4_0_FRONTAL__LOGO_AUTTOM_SMART_4_0_png_8
+Kd 0.0189 0.0189 0.0189
+map_Kd textures/LOGO_AUTTOM_SMART_4.0_198.png
+
+newmtl MATERIAL_CIRCULO_VERDE_16
+Kd 0.8088 1.0000 0.0000
+
+newmtl MATERIAL_SETUP__BOTAO_SETUP_png_28
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_SETUP_215.png
+
+newmtl MATERIAL_START__BOTAO_START_png_29
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_START_173.png
+
+newmtl MATERIAL_STOP__BOTAO_STOP_png_30
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_STOP_181.png
+
+newmtl MATERIAL_RESET__BOTAO_RESET_png_25
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_RESET_208.png
+
+newmtl MATERIAL_SEGURANCA_OK__BOTAO_SEGURANCA_png_27
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_SEGURANCA_194.png
+
+newmtl MATERIAL_SEGURANCA_ACIONADA__BOTAO_SEGURANCA_ACIONADA_png_26
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/BOTAO_SEGURANCA_ACIONADA_207.png
+
+newmtl MATERIAL_EMERGENCIA__BOTAO_EMERGENCIA_png_18
+Kd 0.0000 0.0000 0.0000
+map_Kd textures/BOTAO_EMERGENCIA_138.png
+
+newmtl MATERIAL_BOTAO_VERMELHO_13
+Kd 0.8585 0.0000 0.0068
+
+newmtl MATERIAL_BOTAO_AZUL_11
+Kd 0.0000 0.0000 1.0000
+
+newmtl MATERIAL_BOTAO_VERDE_12
+Kd 0.1880 0.6132 0.1903
+
+newmtl MATERIAL_CONTORNO_VERDE__contorno_png_17
+Kd 0.6038 0.6038 0.6038
+map_Kd textures/contorno_183.png
+
+newmtl MATERIAL_BOTAO_AMARELO_10
+Kd 1.0000 0.8279 0.0000
+
+newmtl MATERIAL_LAMINA_BRANCO_48
+Kd 1.0000 1.0000 1.0000
+
+newmtl MATERIAL_ADESIVO_BRANCO_9
+Kd 0.8000 0.8000 0.8000
+
+newmtl metal_cinza_garra_atual_35
+Kd 0.8679 0.8679 0.8679
+
+newmtl MATERIAL_METAL_CINZA_GARRA_19
+Kd 0.9245 0.9245 0.9245
+
+newmtl metal_preto_atual_36
+Kd 0.1887 0.1887 0.1887
+
+newmtl Color_M08_56
+Kd 0.8000 0.8000 0.8000
+map_Kd textures/Color_M08_baseColor_191.png
+
+newmtl teto_1_62
+Kd 0.0000 0.0000 0.0000
+map_Kd textures/teto_1_216.png
+
+newmtl parede_1_60
+Kd 0.8000 0.8000 0.8000
+map_Kd textures/parede_1_152.png
+
+newmtl details_58
+Kd 0.8000 0.8000 0.8000
+map_Kd textures/details_baseColor_168.png
+
+newmtl Glass_Clear_57
+Kd 0.8000 0.8000 0.8000
+d 0.2431
+map_Kd textures/Glass_Clear_baseColor_190.png
+
+newmtl light_59
+Kd 1.0000 1.0000 1.0000
+
+newmtl MATERIAL_LAMINA_VERMELHO_51
+Kd 0.7647 0.0716 0.0000
+
+newmtl BANCADA_QUALIDADE_6
+Kd 0.7609 1.0000 0.0000
+map_Kd textures/BANCADA_QUALIDADE_165.png
+
+newmtl qualidade_cinza_escuro_40
+Kd 0.7358 0.7358 0.7358
+
+newmtl qualidade_preto_41
+Kd 0.0374 0.0374 0.0374
+
+newmtl LOGO_AUTTOM_SMART_4.0_7
+Kd 0.0000 0.0000 0.0000
+map_Kd textures/LOGO_AUTTOM_SMART_4.0_198.png
+
+newmtl qualidade_azul_38
+Kd 0.6353 0.8916 1.0000
+
+newmtl MATERIAL_METAL_CINZA_REFLECTIVO_2_21
+Kd 0.6415 0.6415 0.6415
+
+newmtl MATERIAL_VIDRO_1_31
+Kd 0.0943 0.0943 0.0943
+
+newmtl MATERIAL_CINZA_GRANULADO_15
+Kd 0.0701 0.1283 0.1415
+
+newmtl MATERIAL_CINZA_ESCURO_2_14
+Kd 0.1038 0.1038 0.1038
+
+newmtl motor_37
+Kd 0.2075 0.2075 0.2075
+
+newmtl esteira_branca_33
+Kd 1.0000 1.0000 1.0000
+
+newmtl MATERIAL_ventosa_amarela_32
+Kd 0.9528 0.8538 0.3730
+
+newmtl MATERIAL_PLASTICO_TRANSPARENTE_24
+Kd 0.9623 0.9623 0.9623
+d 0.2314
+
+newmtl qualidade_cinza_claro_39
+Kd 0.8000 0.8000 0.8000
+
+newmtl MATERIAL_LAMINA_AZUL_47
+Kd 0.0604 0.2149 0.5566
+
+newmtl 1_55
+Kd 1.0000 1.0000 1.0000
+d 0.5882
+map_Kd textures/1_146.png
+
+newmtl 1_67
+Kd 0.3100 0.5094 0.3421
+map_Kd textures/1_184.png
+
+newmtl logo_senai_3d_42
+Kd 0.6792 0.6792 0.6792
+map_Kd textures/texutre_metal_1_sprite_213.png
+
+newmtl preto_1_43
+Kd 0.1883 0.1883 0.1883
+
+newmtl azul_64
+Kd 0.3538 0.7640 1.0000
+
+newmtl vermelho_45
+Kd 0.6226 0.0910 0.1041
+
+newmtl verde_44
+Kd 0.3456 0.7170 0.2063
+
+newmtl amarelo_63
+Kd 1.0000 0.8520 0.0000
+
+newmtl MATERIAL_LAMINA_VERDE_50
+Kd 0.0142 0.6981 0.0000
+
+newmtl BANCADA_ESTOQUE_3
+Kd 0.7609 1.0000 0.0000
+map_Kd textures/BANCADA_ESTOQUE_153.png
+
+newmtl BANCADA_EXPEDIÇÃO_4
+Kd 0.7609 1.0000 0.0000
+map_Kd textures/BANCADA_EXPEDIÇÃO_163.png
+
+newmtl BANCADA_LÂMINAS_5
+Kd 0.7609 1.0000 0.0000
+map_Kd textures/BANCADA_LÂMINAS_209.png
+
+newmtl material_escrita_branca_34
+Kd 0.8000 0.8000 0.8000
+
+newmtl MATERIAL_LAMINA_AMARELO_46
+Kd 1.0000 0.7906 0.0000
+
+newmtl MATERIAL_LAMINA_PRETA_49
+Kd 0.1132 0.1132 0.1132
+
+newmtl painel_estoque_100
+Kd 1.0000 1.0000 1.0000
+map_Kd textures/painel_estoque_193.png
+
+newmtl 1_001_70
+Kd 0.8396 0.7802 0.7802
+map_Kd textures/1_204.png

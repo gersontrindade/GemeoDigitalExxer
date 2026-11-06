@@ -1,0 +1,292 @@
+using UnityEngine;
+
+public class SCRIPT_TRIGGERS : MonoBehaviour
+{
+	private bool MINIMIZAR_FUNCAO = true;
+
+	public static int ESTOQUE_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS;
+
+	public static int PROCESSO_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS;
+
+	public static int MONTAGEM_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS;
+
+	public static int EXPEDICAO_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS;
+
+	public GameObject ESTOQUE_PECA_NA_ESTEIRA_ATUAL;
+
+	public bool ESTOQUE_TRIGGER_PECA_NA_ESTEIRA;
+
+	public bool ESTOQUE_TRIGGER_ALIMENTADOR_BUFFER;
+
+	public bool ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public static bool BOOL_ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public bool ESTOQUE_TRIGGER_ESTOU_BANCADA;
+
+	public GameObject PROCESSO_PECA_NA_ESTEIRA_ATUAL;
+
+	public bool PROCESSO_TRIGGER_PECA_NA_ESTEIRA;
+
+	public bool PROCESSO_TRIGGER_ALIMENTADOR_BUFFER;
+
+	public bool PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public static bool BOOL_PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public bool PROCESSO_TRIGGER_ESTOU_BANCADA;
+
+	public GameObject QUALIDADE_PECA_NA_ESTEIRA_ATUAL;
+
+	public bool QUALIDADE_TRIGGER_PECA_NA_ESTEIRA;
+
+	public bool QUALIDADE_TRIGGER_ALIMENTADOR_BUFFER;
+
+	public bool QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public static bool BOOL_QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public bool QUALIDADE_TRIGGER_ESTOU_BANCADA;
+
+	public GameObject EXPEDICAO_PECA_NA_ESTEIRA_ATUAL;
+
+	public bool EXPEDICAO_TRIGGER_PECA_NA_ESTEIRA;
+
+	public bool EXPEDICAO_TRIGGER_VERTICAL_POS_2;
+
+	public bool EXPEDICAO_TRIGGER_VERTICAL_POS_3;
+
+	public bool EXPEDICAO_TRIGGER_HORIZONTAL_POS_2;
+
+	public bool EXPEDICAO_TRIGGER_HORIZONTAL_POS_3;
+
+	public bool EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public static bool BOOL_EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA;
+
+	public bool EXPEDICAO_TRIGGER_ESTOU_BANCADA;
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if ((ESTOQUE_TRIGGER_ESTOU_BANCADA || QUALIDADE_TRIGGER_ESTOU_BANCADA || EXPEDICAO_TRIGGER_ESTOU_BANCADA) && other.gameObject.transform.tag == "LAMINA")
+		{
+			other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().LAMINA_ESTA_NA_BANCADA_PROCESSO = false;
+		}
+		if (PROCESSO_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "LAMINA")
+		{
+			other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().LAMINA_ESTA_NA_BANCADA_PROCESSO = true;
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (ESTOQUE_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("SMARTBLOCK PRONTO PARA SER PEGO");
+				SCRIPT_TOGGLES.ATIVAR_BIT_EstoquePecaEsteira = true;
+				ExampleUModbusTCP.ESTOQUE_BLOCO_OPERACAO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO;
+				ExampleUModbusTCP.ESTOQUE_BLOCO_PEDIDO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+				ESTOQUE_PECA_NA_ESTEIRA_ATUAL = other.gameObject;
+				ESTOQUE_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+			}
+			if (ESTOQUE_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "ESTOQUE_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_EstoqueAlimentadorBuffer = true;
+			}
+			if (ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA = true;
+			}
+			if (ESTOQUE_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 0;
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (PROCESSO_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("SMARTBLOCK PRONTO PARA SER PEGO");
+				SCRIPT_TOGGLES.ATIVAR_BIT_ProcessoPecaEsteira = true;
+				ExampleUModbusTCP.PROCESSO_BLOCO_OPERACAO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO;
+				ExampleUModbusTCP.PROCESSO_BLOCO_PEDIDO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+				PROCESSO_PECA_NA_ESTEIRA_ATUAL = other.gameObject;
+			}
+			if (PROCESSO_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "PROCESSO_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_ProcessoAlimentadorBuffer = true;
+			}
+			if (PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA = true;
+			}
+			if (PROCESSO_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 1;
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (QUALIDADE_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("SMARTBLOCK PRONTO PARA SER PEGO");
+				SCRIPT_TOGGLES.ATIVAR_BIT_QualidadePecaEsteira = true;
+				ExampleUModbusTCP.QUALIDADE_BLOCO_OPERACAO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO;
+				ExampleUModbusTCP.QUALIDADE_BLOCO_PEDIDO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+				QUALIDADE_PECA_NA_ESTEIRA_ATUAL = other.gameObject;
+				MONTAGEM_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+				MonoBehaviour.print("MANDAR INFORMAÇÕES SOBRE O BLOCO PARA MONTAGEM");
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().MANDAR_INFORMACOES_DO_BLOCO_PARA_QUALIDADE();
+			}
+			if (QUALIDADE_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "QUALIDADE_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_QualidadeALimentadorBuffer = true;
+			}
+			if (QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA = true;
+			}
+			if (QUALIDADE_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 2;
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (EXPEDICAO_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("SMARTBLOCK PRONTO PARA SER PEGO");
+				SCRIPT_TOGGLES.ATIVAR_BIT_ExpedicaoPecaEsteira = true;
+				ExampleUModbusTCP.EXPEDICAO_BLOCO_OPERACAO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO;
+				ExampleUModbusTCP.EXPEDICAO_BLOCO_PEDIDO_ATUAL = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+				EXPEDICAO_PECA_NA_ESTEIRA_ATUAL = other.gameObject;
+				EXPEDICAO_NUMERO_DO_PEDIDO_PARA_MANDAR_MODBUS = other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_DO_PEDIDO_DESEJADO;
+			}
+			if (EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA = true;
+			}
+			if (EXPEDICAO_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 3;
+			}
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (ESTOQUE_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_EstoquePecaEsteira = false;
+				ESTOQUE_PECA_NA_ESTEIRA_ATUAL = null;
+			}
+			if (ESTOQUE_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "ESTOQUE_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_EstoqueAlimentadorBuffer = false;
+			}
+			if (ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_ESTOQUE_TRIGGER_CILINDRO_CHEGADA_OCUPADA = false;
+			}
+			if (ESTOQUE_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				if (SCRIPT_TOGGLES.PROCESSO_ATIVO)
+				{
+					other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 1;
+				}
+				else if (SCRIPT_TOGGLES.QUALIDADE_ATIVO)
+				{
+					other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 2;
+				}
+				else if (SCRIPT_TOGGLES.EXPEDICAO_ATIVO)
+				{
+					other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 3;
+				}
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (PROCESSO_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_ProcessoPecaEsteira = false;
+				PROCESSO_PECA_NA_ESTEIRA_ATUAL = null;
+			}
+			if (PROCESSO_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "PROCESSO_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_ProcessoAlimentadorBuffer = false;
+			}
+			if (PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_PROCESSO_TRIGGER_CILINDRO_CHEGADA_OCUPADA = false;
+			}
+			if (PROCESSO_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE" && SCRIPT_TOGGLES.PROCESSO_ATIVO)
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 1;
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (QUALIDADE_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_QualidadePecaEsteira = false;
+				QUALIDADE_PECA_NA_ESTEIRA_ATUAL = null;
+			}
+			if (QUALIDADE_TRIGGER_ALIMENTADOR_BUFFER && other.gameObject.transform.name == "QUALIDADE_VENTOSA_3D")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_QualidadeALimentadorBuffer = false;
+			}
+			if (QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_QUALIDADE_TRIGGER_CILINDRO_CHEGADA_OCUPADA = false;
+			}
+			if (QUALIDADE_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE" && SCRIPT_TOGGLES.EXPEDICAO_ATIVO)
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 2;
+			}
+		}
+		if (MINIMIZAR_FUNCAO)
+		{
+			if (EXPEDICAO_TRIGGER_PECA_NA_ESTEIRA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				SCRIPT_TOGGLES.ATIVAR_BIT_ExpedicaoPecaEsteira = false;
+				EXPEDICAO_PECA_NA_ESTEIRA_ATUAL = null;
+			}
+			if (EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				MonoBehaviour.print("EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA");
+				BOOL_EXPEDICAO_TRIGGER_CILINDRO_CHEGADA_OCUPADA = false;
+			}
+			if (EXPEDICAO_TRIGGER_ESTOU_BANCADA && other.gameObject.transform.tag == "SMARTBLOCK_BASE")
+			{
+				other.gameObject.GetComponent<SCRIPT_SMARTBLOCK>().NUMERO_OPERACAO_DESEJADO = 3;
+			}
+		}
+	}
+
+	private void Update()
+	{
+		if (ESTOQUE_TRIGGER_PECA_NA_ESTEIRA && ESTOQUE_PECA_NA_ESTEIRA_ATUAL == null)
+		{
+			SCRIPT_TOGGLES.ATIVAR_BIT_EstoquePecaEsteira = false;
+		}
+		if (PROCESSO_TRIGGER_PECA_NA_ESTEIRA && PROCESSO_PECA_NA_ESTEIRA_ATUAL == null)
+		{
+			SCRIPT_TOGGLES.ATIVAR_BIT_ProcessoPecaEsteira = false;
+		}
+		if (QUALIDADE_TRIGGER_PECA_NA_ESTEIRA && QUALIDADE_PECA_NA_ESTEIRA_ATUAL == null)
+		{
+			SCRIPT_TOGGLES.ATIVAR_BIT_QualidadePecaEsteira = false;
+		}
+		if (EXPEDICAO_TRIGGER_PECA_NA_ESTEIRA && EXPEDICAO_PECA_NA_ESTEIRA_ATUAL == null)
+		{
+			SCRIPT_TOGGLES.ATIVAR_BIT_ExpedicaoPecaEsteira = false;
+		}
+	}
+}
